@@ -1,0 +1,38 @@
+.header {
+  height: 163px;
+  color: #ffffff;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 21px 49px 0 0;
+  text-align: right;
+}
+
+.stroke {
+  margin-right: 20px;
+  height: 39px;
+  border-left: 1px solid #fff;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  border-radius: 50%;
+  background: url('../assets/svg/profileIcon.svg');
+}
+
+.name {
+  font-size: 14px;
+}
+
+.title {
+  margin-left: 34px;
+}
+
+.label {
+  font-size: 18px;
+}
