@@ -18,15 +18,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: 200,
-    margin: '0 20px'
+    margin: '20px'
   }
 }));
 
 export default function Info({ email, phone }) {
   const classes = useStyles();
   return (
-    <Grid className={styles.container} container spacing={3}>
+    <Grid style={{height: 192}} container spacing={3}>
       <Grid item xs={12}>
         <Paper className={classes.paper}>
           <List component="nav" aria-label="main mailbox folders">

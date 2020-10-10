@@ -18,8 +18,8 @@
 }
 
 .icon {
-  width: 40px;
-  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   margin-right: 20px;
   border-radius: 50%;
   background: url('../assets/svg/profileIcon.svg');

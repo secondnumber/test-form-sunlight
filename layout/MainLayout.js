@@ -3,6 +3,12 @@ import styles from './MainLayout.module.css';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 
 export function MainLayout({ children, name }) {
+  const makeShortName = (name) => {
+    const nameArr = name.split(' ');
+    const shortName = `${nameArr[0]} ${nameArr[1].charAt(0)}.`;
+    return shortName;
+  };
+
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -13,7 +19,7 @@ export function MainLayout({ children, name }) {
           <NotificationsNoneIcon style={{ fontSize: 24, marginRight: 20 }} />
           <div className={styles.stroke}></div>
           <div className={styles.icon}></div>
-          <div className={styles.name}>{name}</div>
+          <div className={styles.name}>{makeShortName(name)}</div>
         </section>
         <section className={styles.title}>
           <h2 className={styles.label}>ЛИЧНЫЙ ПРОФИЛЬ</h2>
