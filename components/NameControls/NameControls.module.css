@@ -1,3 +1,8 @@
+.wrapper {
+  margin: 0 35px;
+  height: 128px;
+}
+
 .name {
   display: flex;
   align-items: center;
@@ -29,12 +34,19 @@
 }
 
 @media (max-width: 600px) {
+  .wrapper {
+    margin: 0 10px;
+    height: 71px;
+  }
   .name {
     font-size: 24px;
   }
-
   .icon {
     min-width: 40px;
     min-height: 40px;
+    margin: 15px 10px;
+  }
+  .mode {
+    display: none;
   }
 }

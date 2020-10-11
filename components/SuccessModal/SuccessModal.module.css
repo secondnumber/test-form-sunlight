@@ -1,0 +1,21 @@
+.wrapper {
+    position: absolute;
+    top: -220px;
+    width: 600px;
+    text-align: center;
+}
+
+.buttons {
+    max-width: 202px;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        position: absolute;
+        top: 80vh;
+    }
+    .buttons {
+        display: none;
+    }
+}

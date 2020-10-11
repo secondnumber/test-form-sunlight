@@ -9,36 +9,36 @@ import ListItemText from '@material-ui/core/ListItemText';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import PhoneIcon from '@material-ui/icons/Phone';
 import Divider from '@material-ui/core/Divider';
+import styles from './Info.module.css';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     elevation: 3,
-    padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    margin: '24px 34px 0 34px'
+    borderRadius: 10
   }
 }));
 
 export default function Info({ email, phone }) {
   const classes = useStyles();
   return (
-    <Grid style={{ height: 192 }} container>
+    <Grid container>
       <Grid item xs={12}>
-        <Paper className={classes.paper}>
-          <List component="nav" aria-label="main mailbox folders">
-            <ListItem>
+        <Paper className={`${classes.paper} ${styles.wrapper}`}>
+          <List>
+            <ListItem className={styles.item}>
               <ListItemIcon>
-                <AlternateEmailIcon style={{ color: '#00BFA5' }} />
+                <AlternateEmailIcon className={styles.icon}/>
               </ListItemIcon>
-              <ListItemText primary={email ? email : 'Укажите e-mail'} />
+              <ListItemText primary={email ? email : 'Укажите e-mail'}/>
             </ListItem>
-            <Divider />
-            <ListItem>
+            <Divider style={{ backgroundColor: '#CAE7FE' }}/>
+            <ListItem className={styles.item}>
               <ListItemIcon>
-                <PhoneIcon style={{ color: '#00BFA5' }} />
+                <PhoneIcon className={styles.icon}/>
               </ListItemIcon>
-              <ListItemText primary={phone ? phone : 'Укажите номер телефона'} />
+              <ListItemText primary={phone ? phone : 'Укажите номер телефона'}/>
             </ListItem>
           </List>
         </Paper>

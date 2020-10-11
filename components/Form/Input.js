@@ -1,6 +1,9 @@
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
+import FormControl from "@material-ui/core/FormControl";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import InputLabel from "@material-ui/core/InputLabel";
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -15,15 +18,19 @@ export default function Input(props) {
   const classes = useStyles();
 
   return (
-    <TextField
+      <FormControl variant="outlined">
+      <InputLabel htmlFor={name}>{label}</InputLabel>
+      <OutlinedInput
       className={classes.input}
+      id={name}
       name={name}
-      label={label}
       value={value}
+      label={label}
       variant="outlined"
       onChange={onChange}
       placeholder={placeholder}
       {...(error && { error: true, helperText: error })}
-    />
+      />
+      </FormControl>
   );
 }

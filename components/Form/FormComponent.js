@@ -11,6 +11,7 @@ import SuccessModal from '../SuccessModal/SuccessModal';
 import styles from './Form.module.css';
 import { GetPersonFromLS, InsertPersonFromLS } from '../../utils/localStorage';
 import PhoneField from './PhoneNumber';
+import {dataAPI} from "../../utils/api";
 
 export default function FormComponent({ handleEditMode }) {
   const [submitMode, setSubmitMode] = useState(false);
@@ -58,23 +59,24 @@ export default function FormComponent({ handleEditMode }) {
   };
 
   const handleSubmit = () => {
+    dataAPI.postFormData(values);
     setSubmitMode(false);
     setSuccessMode(true);
     InsertPersonFromLS(values);
-    handleEditMode(false);
   };
 
   const handleEnd = () => {
+    handleEditMode(false);
     setSuccessMode(false);
   };
 
   return (
     <>
       <Form onSubmit={handleOpenSubmit}>
-        <Grid container>
+        <Grid container className={styles.wrapper}>
           <Grid item xs={12} md={4}>
             <div className={styles.container}>
-              <AssignmentIndIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45 }} />
+              <span className={styles.icon}><AssignmentIndIcon /></span>
               <Input
                 name="fullName"
                 label="Фамилия и имя"
@@ -87,7 +89,7 @@ export default function FormComponent({ handleEditMode }) {
           </Grid>
           <Grid item xs={12} md={4}>
             <div className={`${styles.container} ${styles.stroke}`}>
-              <AlternateEmailIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45 }} />
+              <span className={styles.icon}><AlternateEmailIcon /></span>
               <Input
                 name="email"
                 label="E-mail"
@@ -100,7 +102,7 @@ export default function FormComponent({ handleEditMode }) {
           </Grid>
           <Grid item xs={12} md={4}>
             <div className={`${styles.container} ${styles.stroke}`}>
-              <PhoneIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45 }} />
+              <span className={styles.icon}><PhoneIcon /></span>
               <Input
                 name="phone"
                 label="Номер телефона"
@@ -112,7 +114,7 @@ export default function FormComponent({ handleEditMode }) {
             </div>
           </Grid>
           <Grid container>
-            <Grid item xs={12}>
+            <Grid item xs={12} style={{ marginBottom: 44}}>
               <Button variant="contained" type="submit" text="Сохранить изменения" width={212} />
             </Grid>
           </Grid>

@@ -1,45 +1,37 @@
 import Button from '../Form/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import React from 'react';
-import makeStyles from '@material-ui/core/styles/makeStyles';
 import DialogContent from '@material-ui/core/DialogContent';
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    textAlign: 'center',
-    width: 600
-  },
-  text: {
-    paddingTop: 59,
-    fontSize: 24
-  },
-  buttons: {
-    margin: '0 auto',
-    paddingBottom: 56,
-    maxWidth: 202
-  }
-}));
+import styles from './SuccessModal.module.css';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 export default function SuccessModal({ open, handleEnd }) {
-  const classes = useStyles();
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('xs'));
   return (
-    <div>
-      <Dialog open={open} onClose={handleEnd} maxWidth={500}>
-        <DialogContent className={classes.container}>
-          <DialogContentText className={classes.text}>Данные успешно сохранены</DialogContentText>
-          <div className={classes.buttons}>
-            <Button
-              variant="contained"
-              type="button"
-              text="Хорошо"
-              onClick={handleEnd}
-              fullWidth={true}
-            />
-          </div>
-        </DialogContent>
-      </Dialog>
-    </div>
+      <>
+        <Dialog
+            open={open}
+            onClose={handleEnd}
+            fullScreen={fullScreen}
+            PaperProps={{ classes: {root: styles.wrapper } }}
+        >
+          <DialogContent>
+            <DialogContentText>Данные успешно сохранены</DialogContentText>
+            <div className={styles.buttons}>
+              <Button
+                  variant="contained"
+                  type="button"
+                  text="Хорошо"
+                  onClick={handleEnd}
+                  fullWidth={true}
+              />
+            </div>
+          </DialogContent>
+        </Dialog>
+      </>
   );
 }
+
