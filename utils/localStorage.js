@@ -12,6 +12,8 @@ export function InsertPersonFromLS(data) {
 
 export function GetPersonFromLS() {
   if (localStorage.getItem(KEYS.person) === null)
-    localStorage.setItem(KEYS.person, JSON.stringify([]));
+    localStorage.setItem(KEYS.person, JSON.stringify([
+      {fullName: "Иванова Анна Михайловна", email: "ivanova@mail.ru", phone: ""}
+    ]));
   return JSON.parse(localStorage.getItem(KEYS.person));
 }
