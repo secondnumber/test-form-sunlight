@@ -1,0 +1,11 @@
+.container:not(.stroke) {
+    border-left: none;
+}
+
+.container {
+    margin: 49px 0 46px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #CAE7FE;
+}

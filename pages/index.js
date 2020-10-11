@@ -1,17 +1,19 @@
 import { MainLayout } from '../layout/MainLayout';
 import NameControls from '../components/NameControls/NameControls';
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import Info from '../components/Info/Info';
 import styles from './Index.module.css';
-import SubmitModal from '../components/SubmitModal/SubmitModal';
 import FormComponent from '../components/Form/FormComponent';
-import {GetPerson} from "../components/Form/workWithLocalStorage";
 import {GetPersonFromLS} from "../utils/localStorage";
 
 export default function Index() {
-  const person = GetPersonFromLS()[0];
-  const [currentData, setCurrentData] = useState(person);
+  const [currentData, setCurrentData] = useState({});
   const [editMode, setEditMode] = useState(false);
+
+  useEffect(() => {
+    const person = GetPersonFromLS()[0]
+    setCurrentData(person)
+  }, [])
 
   const handleEditMode = (bool) => {
     setEditMode(bool);

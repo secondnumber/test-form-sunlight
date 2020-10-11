@@ -1,5 +1,4 @@
 import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import PhoneIcon from '@material-ui/icons/Phone';
@@ -9,9 +8,9 @@ import Button from './Button';
 import React, { useState } from 'react';
 import SubmitModal from '../SubmitModal/SubmitModal';
 import SuccessModal from '../SuccessModal/SuccessModal';
-import { dataAPI } from '../../utils/api';
-import {InsertPerson} from "./workWithLocalStorage";
+import styles from './Form.module.css';
 import {InsertPersonFromLS} from "../../utils/localStorage";
+import PhoneField from "./PhoneNumber";
 
 const initialValues = {
   id: 1,
@@ -52,7 +51,6 @@ export default function FormComponent() {
     e.preventDefault();
     if (validate()) {
       setSubmitMode(true);
-      alert('test');
     }
   };
 
@@ -78,9 +76,9 @@ export default function FormComponent() {
     <>
       <Form onSubmit={handleOpenSubmit}>
         <Grid container>
-          <Grid item xs={4}>
-            <div>
-              <AssignmentIndIcon />
+          <Grid item xs={12} md={4}>
+            <div className={styles.container}>
+              <AssignmentIndIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45}}/>
               <Input
                 name="fullName"
                 label="Фамилия и имя"
@@ -89,12 +87,11 @@ export default function FormComponent() {
                 onChange={handleInputChange}
                 error={errors.fullName}
               />
-              <Divider orientation="vertical" />
             </div>
           </Grid>
-          <Grid item xs={4}>
-            <div>
-              <AlternateEmailIcon />
+          <Grid item xs={12} md={4}>
+            <div className={`${styles.container} ${styles.stroke}`}>
+              <AlternateEmailIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45}}/>
               <Input
                 name="email"
                 label="E-mail"
@@ -103,12 +100,11 @@ export default function FormComponent() {
                 onChange={handleInputChange}
                 error={errors.email}
               />
-              <Divider orientation="vertical" />
             </div>
           </Grid>
-          <Grid item xs={4}>
-            <div>
-              <PhoneIcon />
+          <Grid item xs={12} md={4}>
+            <div className={`${styles.container} ${styles.stroke}`}>
+              <PhoneIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45}}/>
               <Input
                 name="phone"
                 label="Номер телефона"

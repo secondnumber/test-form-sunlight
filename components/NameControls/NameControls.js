@@ -13,21 +13,21 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: theme.spacing(2),
     textAlign: 'center',
     color: '#fff',
     background: '#1A78C2',
     height: 128,
-    margin: '0 20px'
+    margin: '0 35px',
+    borderRadius: 10
   }
 }));
 
 export default function NameControls({ name, editMode, handleEditMode }) {
   const classes = useStyles();
   return (
-    <Grid container spacing={3}>
+    <Grid container >
       <Grid item xs={12}>
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} style={{borderRadius: 10}}>
           <div className={styles.name}>
             <div className={styles.icon}></div>
             <div>{name}</div>
@@ -49,7 +49,7 @@ export default function NameControls({ name, editMode, handleEditMode }) {
                 handleEditMode(true);
               }}>
               <div className={styles.mode}>Редактировать</div>
-              <EditIcon />
+              <EditIcon style={{ fontSize: 18 }}/>
             </div>
           )}
         </Paper>

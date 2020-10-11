@@ -4,11 +4,10 @@ import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    padding: theme.spacing(2),
+    elevation: 3,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: 200,
-    margin: '20px'
+    margin: '24px 34px 7px 34px'
   }
 }));
 
