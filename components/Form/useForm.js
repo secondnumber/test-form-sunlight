@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
+import styles from './Form.module.css';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     elevation: 3,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    margin: '24px 34px 7px 34px'
+    borderRadius: 10
   }
 }));
 
@@ -40,7 +41,7 @@ export function Form(props) {
 
   return (
     <div>
-      <Paper className={classes.paper}>
+      <Paper className={`${classes.paper} ${styles.wrapper}`}>
         <form {...other}>{props.children}</form>
       </Paper>
     </div>

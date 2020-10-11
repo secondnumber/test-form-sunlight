@@ -16,8 +16,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: '#fff',
     background: '#1A78C2',
-    height: 128,
-    margin: '0 35px',
     borderRadius: 10
   }
 }));
@@ -27,7 +25,7 @@ export default function NameControls({ name, editMode, handleEditMode }) {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <Paper className={classes.paper} style={{ borderRadius: 10 }}>
+        <Paper className={`${classes.paper} ${styles.wrapper}`}>
           <div className={styles.name}>
             <div className={styles.icon}></div>
             <div>{name}</div>

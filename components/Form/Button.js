@@ -4,7 +4,7 @@ import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    margin: 20,
+    margin: '20px 0',
     backgroundColor: '#1EC3AF',
     height: 50,
     borderRadius: 36,
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   buttonOutlined: {
-    margin: 20,
+    margin: '20px 0',
     height: 50,
     border: '1px solid #1EC3AF',
     borderRadius: 36,

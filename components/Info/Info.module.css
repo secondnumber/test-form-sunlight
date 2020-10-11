@@ -1,0 +1,25 @@
+.wrapper {
+  margin: 24px 34px 0 34px;
+}
+.item {
+  height: 30px;
+  margin: 33px 0;
+  font-size: 18px;
+}
+.icon {
+  color: #00BFA5;
+  padding: 0 45px 0 77px;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    margin: 10px;
+  }
+  .item {
+    height: 30px;
+    margin: 22px 0;
+  }
+  .icon {
+    padding: 0 12px 0 22px;
+  }
+}
