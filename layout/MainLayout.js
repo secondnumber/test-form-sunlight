@@ -1,16 +1,15 @@
 import Head from 'next/head';
 import styles from './MainLayout.module.css';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
-import React from "react";
+import React from 'react';
 
 export function MainLayout({ children, name }) {
   const makeShortName = (name) => {
-      if (name) {
-          const nameArr = name.split(' ');
-          const shortName = `${nameArr[0]} ${nameArr[1].charAt(0)}.`;
-          return shortName;
-      }
-
+    if (name) {
+      const nameArr = name.split(' ');
+      const shortName = `${nameArr[0]} ${nameArr[1].charAt(0)}.`;
+      return shortName;
+    }
   };
 
   return (
@@ -21,9 +20,9 @@ export function MainLayout({ children, name }) {
       </Head>
       <header className={styles.header}>
         <section className={styles.menu}>
-          <NotificationsNoneIcon style={{ fontSize: 29, marginRight: 20 }} />
+          <NotificationsNoneIcon className={styles.icon} />
           <div className={styles.stroke}></div>
-          <div className={styles.icon}></div>
+          <div className={styles.avatar}></div>
           <div className={styles.name}>{makeShortName(name)}</div>
         </section>
         <section className={styles.title}>

@@ -34,7 +34,13 @@ export default function Input(props) {
   const classes = useStyles();
 
   return (
-    <Button className={variant === 'outlined' ? classes.buttonOutlined : classes.button} variant={variant} type={type} onClick={onClick} style={{width: {width}}} fullWidth={fullWidth}>
+    <Button
+      className={variant === 'outlined' ? classes.buttonOutlined : classes.button}
+      variant={variant}
+      type={type}
+      onClick={onClick}
+      style={{ width: { width } }}
+      fullWidth={fullWidth}>
       {text}
     </Button>
   );

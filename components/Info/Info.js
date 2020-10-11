@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Info({ email, phone }) {
   const classes = useStyles();
   return (
-    <Grid style={{height: 192}} container >
+    <Grid style={{ height: 192 }} container>
       <Grid item xs={12}>
         <Paper className={classes.paper}>
           <List component="nav" aria-label="main mailbox folders">

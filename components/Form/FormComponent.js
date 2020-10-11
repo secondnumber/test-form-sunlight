@@ -5,23 +5,18 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import { useForm, Form } from './useForm';
 import Input from './Input';
 import Button from './Button';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SubmitModal from '../SubmitModal/SubmitModal';
 import SuccessModal from '../SuccessModal/SuccessModal';
 import styles from './Form.module.css';
-import {InsertPersonFromLS} from "../../utils/localStorage";
-import PhoneField from "./PhoneNumber";
+import { GetPersonFromLS, InsertPersonFromLS } from '../../utils/localStorage';
+import PhoneField from './PhoneNumber';
 
-const initialValues = {
-  id: 1,
-  fullName: 'Иванова Анна Михайловна',
-  email: 'ivanova@mail.ru',
-  phone: null
-};
-
-export default function FormComponent() {
+export default function FormComponent({ handleEditMode }) {
   const [submitMode, setSubmitMode] = useState(false);
   const [successMode, setSuccessMode] = useState(false);
+
+  const initialValues = GetPersonFromLS()[0];
 
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
@@ -66,6 +61,7 @@ export default function FormComponent() {
     setSubmitMode(false);
     setSuccessMode(true);
     InsertPersonFromLS(values);
+    handleEditMode(false);
   };
 
   const handleEnd = () => {
@@ -78,7 +74,7 @@ export default function FormComponent() {
         <Grid container>
           <Grid item xs={12} md={4}>
             <div className={styles.container}>
-              <AssignmentIndIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45}}/>
+              <AssignmentIndIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45 }} />
               <Input
                 name="fullName"
                 label="Фамилия и имя"
@@ -91,7 +87,7 @@ export default function FormComponent() {
           </Grid>
           <Grid item xs={12} md={4}>
             <div className={`${styles.container} ${styles.stroke}`}>
-              <AlternateEmailIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45}}/>
+              <AlternateEmailIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45 }} />
               <Input
                 name="email"
                 label="E-mail"
@@ -104,7 +100,7 @@ export default function FormComponent() {
           </Grid>
           <Grid item xs={12} md={4}>
             <div className={`${styles.container} ${styles.stroke}`}>
-              <PhoneIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45}}/>
+              <PhoneIcon style={{ color: '#00BFA5', fontSize: 30, paddingRight: 45 }} />
               <Input
                 name="phone"
                 label="Номер телефона"

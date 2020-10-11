@@ -25,9 +25,9 @@ const useStyles = makeStyles((theme) => ({
 export default function NameControls({ name, editMode, handleEditMode }) {
   const classes = useStyles();
   return (
-    <Grid container >
+    <Grid container>
       <Grid item xs={12}>
-        <Paper className={classes.paper} style={{borderRadius: 10}}>
+        <Paper className={classes.paper} style={{ borderRadius: 10 }}>
           <div className={styles.name}>
             <div className={styles.icon}></div>
             <div>{name}</div>
@@ -49,7 +49,7 @@ export default function NameControls({ name, editMode, handleEditMode }) {
                 handleEditMode(true);
               }}>
               <div className={styles.mode}>Редактировать</div>
-              <EditIcon style={{ fontSize: 18 }}/>
+              <EditIcon style={{ fontSize: 18 }} />
             </div>
           )}
         </Paper>
