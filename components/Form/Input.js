@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Input(props) {
-  const { name, label, value, onChange, error = null } = props;
+  const { name, label, value, onChange, error = null, placeholder } = props;
 
   const classes = useStyles();
 
@@ -22,6 +22,7 @@ export default function Input(props) {
       value={value}
       variant="outlined"
       onChange={onChange}
+      placeholder={placeholder}
       {...(error && { error: true, helperText: error })}
     />
   );
