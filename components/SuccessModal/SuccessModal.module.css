@@ -1,6 +1,6 @@
 .wrapper {
     position: absolute;
-    top: -220px;
+    top: -120px;
     width: 600px;
     text-align: center;
 }
@@ -17,5 +17,11 @@
     }
     .buttons {
         display: none;
+    }
+}
+
+@media (max-height: 600px) {
+    .wrapper {
+        top: 0;
     }
 }
