@@ -16,7 +16,9 @@ export default function SubmitModal({ open, handleClose, handleSubmit, handleCan
           open={open}
           onClose={handleClose}
           fullScreen={fullScreen}
-          PaperProps={{ classes: {root: styles.wrapper } }}
+          PaperProps={{ classes: {root: styles.wrapper }, style: {
+              borderRadius: '10px',
+            }, }}
       >
         <DialogContent>
           <DialogContentText>Сохранить изменения?</DialogContentText>
